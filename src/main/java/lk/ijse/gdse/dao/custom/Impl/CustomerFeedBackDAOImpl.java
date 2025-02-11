@@ -1,6 +1,5 @@
 package lk.ijse.gdse.dao.custom.Impl;
 
-import lk.ijse.gdse.dao.custom.CustomerDAO;
 import lk.ijse.gdse.dao.custom.CustomerFeedbackDAO;
 import lk.ijse.gdse.entity.CustomerFeedback;
 

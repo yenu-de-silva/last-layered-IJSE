@@ -1,16 +1,6 @@
 package lk.ijse.gdse.dao;
 
-import lk.ijse.gdse.bo.custom.Impl.DeliveryBOImpl;
-import lk.ijse.gdse.bo.custom.Impl.InventoryBOImpl;
-import lk.ijse.gdse.bo.custom.Impl.ManageBOImpl;
-import lk.ijse.gdse.bo.custom.Impl.UserBOImpl;
 import lk.ijse.gdse.dao.custom.Impl.*;
-import lk.ijse.gdse.dao.custom.ProductDAO;
-import lk.ijse.gdse.entity.Customer;
-import lk.ijse.gdse.entity.Salary;
-
-import java.sql.SQLException;
-import java.util.List;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;

@@ -1,6 +1,5 @@
 package lk.ijse.gdse.bo;
 
-import lk.ijse.gdse.bo.custom.DepartmentBO;
 import lk.ijse.gdse.bo.custom.Impl.*;
 
 public class BOFactory {
