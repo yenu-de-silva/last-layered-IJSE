@@ -2,7 +2,7 @@ package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dao.custom.OrderDetailsDAO;
-import lk.ijse.gdse.entity.Employee;
+import lk.ijse.gdse.dto.OrderDetailsDTO;
 import lk.ijse.gdse.entity.OrderDetails;
 
 import java.sql.ResultSet;
@@ -51,12 +51,33 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("SELECT max(order_id) from order_details");
     }
 
     @Override
     public OrderDetails search(String id) throws SQLException, ClassNotFoundException {
         return null;
+    }
+
+    @Override
+    public ArrayList<OrderDetailsDTO> getAllOrderDetails() {
+        return null;
+    }
+
+    @Override
+    public boolean saveOrderDetails(OrderDetailsDTO orderDetailsDTO) throws SQLException, ClassNotFoundException {
+        return SQLUtil.execute("insert into order_details(orderdetail_id , order_id, order_date, customer_id, product_id, quantity, total_price) values (?,?,?,?,?,?)", orderDetailsDTO.getOrderDetail_id(),orderDetailsDTO.getOrder_id(),orderDetailsDTO.getProduct_id(),orderDetailsDTO.getQuantity(),orderDetailsDTO.getPrice());
+    }
+
+    @Override
+    public boolean updateOrderDetails(OrderDetailsDTO orderDetailsDTO) throws SQLException, ClassNotFoundException {
+        return SQLUtil.execute("update order_details set order_id=?, product_id=?, quantity=?, price=? where orderdetail_id=?");
+
+    }
+
+    @Override
+    public boolean deleteOrderDetails(String orderDetailId) throws SQLException, ClassNotFoundException {
+        return SQLUtil.execute("delete from order_details where order_id=?");
     }
 }

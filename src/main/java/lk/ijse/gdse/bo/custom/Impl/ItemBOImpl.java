@@ -5,7 +5,6 @@ import lk.ijse.gdse.dao.DAOFactory;
 import lk.ijse.gdse.dao.custom.ItemDAO;
 import lk.ijse.gdse.dto.ItemDTO;
 import lk.ijse.gdse.dto.OrderDetailsDTO;
-import lk.ijse.gdse.dto.tm.ItemTM;
 import lk.ijse.gdse.entity.Item;
 
 import java.sql.SQLException;
@@ -20,9 +19,9 @@ public class ItemBOImpl implements ItemBO {
     public boolean saveItem(ItemDTO itemDTO) throws SQLException, ClassNotFoundException {
         Item item = new Item();
         item.setItem_id(itemDTO.getItem_id());
-        item.setPrice(itemDTO.getPrice());
         item.setName(itemDTO.getName());
         item.setQuantity(itemDTO.getQuantity());
+        item.setPrice(itemDTO.getPrice());
 
         return itemDAO.save(item);
     }
@@ -31,9 +30,9 @@ public class ItemBOImpl implements ItemBO {
     public boolean updateItem(ItemDTO itemDTO) throws SQLException, ClassNotFoundException {
         Item item = new Item();
         item.setItem_id(itemDTO.getItem_id());
-        item.setPrice(itemDTO.getPrice());
         item.setName(itemDTO.getName());
         item.setQuantity(itemDTO.getQuantity());
+        item.setPrice(itemDTO.getPrice());
 
         return itemDAO.update(item);
     }
@@ -49,14 +48,14 @@ public class ItemBOImpl implements ItemBO {
 
         List<ItemDTO> itemTMList = new ArrayList<>();
 
-        for (Item item : allData) {
-            ItemDTO iten = new ItemDTO(
-                    item.getItem_id(),
-                    item.getName(),
-                    item.getQuantity(),
-                    item.getPrice()
+        for (Item itemDTO : allData) {
+            ItemDTO item = new ItemDTO(
+                    itemDTO.getItem_id(),
+                    itemDTO.getName(),
+                    itemDTO.getQuantity(),
+                    itemDTO.getPrice()
             );
-            itemTMList.add(iten);
+            itemTMList.add(item);
         }
         return itemTMList;
     }
@@ -69,6 +68,24 @@ public class ItemBOImpl implements ItemBO {
     @Override
     public ArrayList<String> getAllItemIds() {
         return null;
+    }
+
+    @Override
+    public List<ItemDTO> getAllItem() throws SQLException, ClassNotFoundException {
+        List<Item> allData = itemDAO.getAll();
+
+        List<ItemDTO> itemTMList = new ArrayList<>();
+
+        for (Item itemDTO : allData) {
+            ItemDTO item = new ItemDTO(
+                    itemDTO.getItem_id(),
+                    itemDTO.getName(),
+                    itemDTO.getQuantity(),
+                    itemDTO.getPrice()
+            );
+            itemTMList.add(item);
+        }
+        return itemTMList;
     }
 }
 

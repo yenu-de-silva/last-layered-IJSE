@@ -33,7 +33,7 @@ public class BOFactory {
                                              case ORDER:
                                                  return new OrderBOImpl();
                                                  case SALARY:
-                                                     return new SupplierBOImpl();
+                                                     return new SalaryBOImpl();
                                                      case USER:
                                                          return new UserBOImpl();
                                                          case DELIVERY:

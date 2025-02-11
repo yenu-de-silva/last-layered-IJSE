@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="724.0" prefWidth="887.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.pizzahubsystem.controller.PaymentController">
+<AnchorPane prefHeight="724.0" prefWidth="887.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.PaymentController">
    <children>
       <Pane layoutX="209.0" layoutY="109.0" prefHeight="268.0" prefWidth="678.0" AnchorPane.bottomAnchor="574.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0" />
       <Label fx:id="orderDetailsId" alignment="CENTER" layoutX="39.0" layoutY="108.0" prefHeight="27.0" prefWidth="150.0" text="Order Details">

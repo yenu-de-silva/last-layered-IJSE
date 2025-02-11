@@ -1,6 +1,5 @@
 package lk.ijse.gdse.dao;
 
-
 import lk.ijse.gdse.db.DBConnection;
 
 import java.sql.Connection;

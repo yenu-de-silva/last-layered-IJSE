@@ -13,7 +13,7 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public List<Item> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rst = SQLUtil.execute("SELECT * from items");
+        ResultSet rst = SQLUtil.execute("SELECT * from item");
 
         ArrayList<Item> itemDTOS = new ArrayList<>();
 
@@ -51,7 +51,7 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("SELECT MAX(item_id) FROM item");
     }
 

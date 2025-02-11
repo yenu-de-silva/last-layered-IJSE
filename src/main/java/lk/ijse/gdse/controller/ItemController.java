@@ -146,7 +146,7 @@ public class ItemController {
 
     private void loadTableData() throws SQLException, ClassNotFoundException {
         ObservableList<ItemTM> itemList = FXCollections.observableArrayList();
-        List<ItemDTO> items = itemBO.getAllItems();
+        List<ItemDTO> items = itemBO.getAllItem();
 
         for (ItemDTO item : items) {
             itemList.add(new ItemTM(item.getItem_id(), item.getName(), item.getQuantity(), item.getPrice()));
@@ -160,7 +160,7 @@ public class ItemController {
         itemIdColumn.setCellValueFactory(new PropertyValueFactory<>("item_id"));
         itemNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         itemQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        itemPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        itemQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         loadTableData();
     }
