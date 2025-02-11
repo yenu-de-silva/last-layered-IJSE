@@ -22,4 +22,3 @@ public interface DeliveryBO extends SuperBO {
     boolean deleteDelivery(int deliveryId) throws SQLException, ClassNotFoundException;
 
 }
-/////
