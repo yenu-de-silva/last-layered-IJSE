@@ -2,6 +2,7 @@ package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dao.custom.OrderDAO;
+import lk.ijse.gdse.dto.OrderDTO;
 import lk.ijse.gdse.entity.Customer;
 import lk.ijse.gdse.entity.Order;
 
@@ -15,7 +16,7 @@ public class OrderDAOImpl implements OrderDAO {
 
     @Override
     public List<Order> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rst = SQLUtil.execute("SELECT * from order");
+        ResultSet rst = SQLUtil.execute("SELECT * from orders");
 
         ArrayList<Order> orderDTOS = new ArrayList<>();
 

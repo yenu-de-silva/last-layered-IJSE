@@ -149,7 +149,7 @@ public class OrderController implements Initializable {
         ObservableList<OrderTM> orderTMS = FXCollections.observableArrayList();
         List<OrderTM> sList = orderBO.getAllOrders();
         orderTMS.addAll(sList);
-        tblOrder.setItems(orderTMS);
+        tblorder.setItems(orderTMS);
     }
 
     private void generateOrderId() {
