@@ -13,3 +13,4 @@ public interface CrudDAO<T> extends SuperDAO{
     T search(String id) throws SQLException, ClassNotFoundException;
 
 }
+//facade

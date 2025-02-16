@@ -160,7 +160,7 @@ public class ItemController {
         itemIdColumn.setCellValueFactory(new PropertyValueFactory<>("item_id"));
         itemNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         itemQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        itemQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        itemPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         loadTableData();
     }

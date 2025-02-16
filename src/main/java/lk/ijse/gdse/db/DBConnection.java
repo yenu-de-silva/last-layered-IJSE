@@ -22,3 +22,5 @@ public class DBConnection {
         return connection;
     }
 }
+
+//design patterns - singleton design

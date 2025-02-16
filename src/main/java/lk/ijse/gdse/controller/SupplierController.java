@@ -17,15 +17,15 @@ import java.util.List;
 
 public class SupplierController {
 
-    public TableColumn<?,?> colAdress;
+    public TableColumn<SupplierTM,String> colAdress;
 
-    public TableColumn<?,?> colContactNumber;
+    public TableColumn<SupplierTM,String> colContactNumber;
 
-    public TableColumn<?,?> colContactName;
+    public TableColumn<SupplierTM,String> colContactName;
 
-    public TableColumn <?,?>colName;
+    public TableColumn <SupplierTM,String>colName;
 
-    public TableColumn<?,?> colSupplierID;
+    public TableColumn<SupplierTM,String> colSupplierID;
 
     public TableView<SupplierTM> tblsupplier;
 

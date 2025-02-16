@@ -51,3 +51,5 @@ public class BOFactory {
         }
     }
 }
+
+//design patterns - singleton design / factory

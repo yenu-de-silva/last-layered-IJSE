@@ -16,3 +16,5 @@ public class CustomerDTO {
     private String address;
 
 }
+
+//encapsulation

@@ -224,7 +224,7 @@ public class PaymentController {
 
         try {
             connection = dbConnection.getConnection();
-            connection.setAutoCommit(false);
+            connection.setAutoCommit(false); //Start Transaction
 
             String sql = "INSERT INTO payments (customer_id, amount, payment_method, quantity, payment_date) VALUES (?, ?, ?, ?, ?)";
             preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -235,7 +235,7 @@ public class PaymentController {
             preparedStatement.setInt(4, Integer.parseInt(quantityField.getText()));
             preparedStatement.setString(5, PaymentDateId.getText());
 
-            int affectedRows = preparedStatement.executeUpdate();
+            int affectedRows = preparedStatement.executeUpdate(); // Execute SQL Insert Statement
 
             if (affectedRows > 0) {
                 connection.commit();

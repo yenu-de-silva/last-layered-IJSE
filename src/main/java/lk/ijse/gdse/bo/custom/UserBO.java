@@ -2,13 +2,14 @@ package lk.ijse.gdse.bo.custom;
 
 import lk.ijse.gdse.bo.SuperBO;
 import lk.ijse.gdse.dto.UserDTO;
+import lk.ijse.gdse.entity.User;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 public interface UserBO extends SuperBO {
 
-    ArrayList<UserDTO> getAllUserIds() throws SQLException, ClassNotFoundException;
+    List<User> getAllUserIds() throws SQLException, ClassNotFoundException;
 
     boolean saveUser(UserDTO userDTO) throws SQLException, ClassNotFoundException;
 

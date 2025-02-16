@@ -12,7 +12,7 @@ public interface OrderBO extends SuperBO {
 
     boolean save(OrderDTO orderDTO) throws SQLException, ClassNotFoundException;
 
-    boolean saveOrder(OrderDTO order);
+    boolean saveOrder(OrderDTO order) throws SQLException, ClassNotFoundException;
 
-    String getNextOrderId();
+    int getNextOrderId() throws SQLException, ClassNotFoundException;
 }

@@ -7,3 +7,5 @@ import java.sql.SQLException;
 public interface QueryDAO extends SuperDAO {
     void findOrdersByOrderDerailID() throws SQLException, ClassNotFoundException;
 }
+
+//join query

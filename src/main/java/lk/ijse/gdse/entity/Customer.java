@@ -16,3 +16,5 @@ public class Customer extends Order {
     private String address;
 
 }
+
+//encapsulation

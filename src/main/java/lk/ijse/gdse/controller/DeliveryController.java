@@ -52,8 +52,8 @@ public class DeliveryController {
     private void setCellValue() {
         colDeliveryId.setCellValueFactory(new PropertyValueFactory<>("delivery_id"));
         colOrderId.setCellValueFactory(new PropertyValueFactory<>("order_id"));
-        colDeliveryDate.setCellValueFactory(new PropertyValueFactory<>("delivery_Date"));
-        colDeliveryAddress.setCellValueFactory(new PropertyValueFactory<>("delivery_Address"));
+        colDeliveryDate.setCellValueFactory(new PropertyValueFactory<>("delivery_date"));
+        colDeliveryAddress.setCellValueFactory(new PropertyValueFactory<>("delivery_address"));
         colDeliveryStatus.setCellValueFactory(new PropertyValueFactory<>("delivery_status"));
     }
 
@@ -97,11 +97,11 @@ public class DeliveryController {
         DeliveryDTO selectedDelivery = (DeliveryDTO) tbldelivery.getSelectionModel().getSelectedItem();
         if (selectedDelivery != null) {
             deliveryIdField.setText(String.valueOf(selectedDelivery.getDelivery_id()));
-            deliveryOrderIdField.setText(String.valueOf(selectedDelivery.getOrder_id()));
-            deliveryAddressField.setText(selectedDelivery.getDelivery_address());
-            deliveryDateField.setText(selectedDelivery.getDelivery_date().toString());
-            deliveryStatusField.setText(selectedDelivery.getDelivery_status());
-            employeeIdField.setText(selectedDelivery.getEmployee_id());
+            deliveryorderIdfeild.setText(String.valueOf(selectedDelivery.getOrder_id()));
+            deliveryaddressField.setText(selectedDelivery.getDelivery_address());
+            deliverydateField.setText(selectedDelivery.getDelivery_date().toString());
+            deliveryStatusField1.setText(selectedDelivery.getDelivery_status());
+            EmployeeIdField1.setText(selectedDelivery.getEmployee_id());
         }
     }
 
@@ -153,7 +153,7 @@ public class DeliveryController {
         deliveryIdField.clear();
         deliveryorderIdfeild.clear();
         deliveryaddressField.clear();
-        deliveryDateField.clear();
+        deliverydateField.clear();
         deliveryStatusField1.clear();
         EmployeeIdField1.clear();
     }

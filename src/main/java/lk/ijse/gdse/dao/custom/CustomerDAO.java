@@ -6,3 +6,5 @@ import lk.ijse.gdse.entity.Customer;
 public interface CustomerDAO extends CrudDAO<Customer> {
 
 }
+
+//abstraction

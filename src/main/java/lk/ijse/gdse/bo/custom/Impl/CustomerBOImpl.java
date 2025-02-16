@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CustomerBOImpl implements CustomerBO {
 
-    CustomerDAO customerDAO = (CustomerDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.CUSTOMER);
+    CustomerDAO customerDAO = (CustomerDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.CUSTOMER); //Dependency Injection
 
     @Override
     public boolean saveCustomer(CustomerDTO customerDTO) throws SQLException, ClassNotFoundException {

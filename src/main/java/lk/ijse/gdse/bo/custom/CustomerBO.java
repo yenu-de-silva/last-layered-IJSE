@@ -18,3 +18,5 @@ public interface CustomerBO extends SuperBO {
 
     List<CustomerTM> getAllCustomers() throws SQLException, ClassNotFoundException;
 }
+
+//abstraction
