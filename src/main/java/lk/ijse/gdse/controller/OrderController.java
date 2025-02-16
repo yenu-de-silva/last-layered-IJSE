@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.gdse.bo.BOFactory;
@@ -12,13 +11,11 @@ import lk.ijse.gdse.bo.custom.OrderBO;
 import lk.ijse.gdse.dto.OrderDTO;
 import lk.ijse.gdse.dto.tm.OrderTM;
 
-import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.ResourceBundle;
 
-public class OrderController{
+public class OrderController {
 
     private final OrderBO orderBO = (OrderBO) BOFactory.getInstance().getBO(BOFactory.BOType.ORDER);
     public Label orderDate;

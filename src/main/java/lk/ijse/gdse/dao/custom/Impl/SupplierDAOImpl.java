@@ -12,7 +12,7 @@ import java.util.List;
 public class SupplierDAOImpl implements SupplierDAO {
     @Override
     public List<Supplier> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rst = SQLUtil.execute("SELECT * from inventory");
+        ResultSet rst = SQLUtil.execute("SELECT * from supplier");
 
         ArrayList<Supplier> supplierDTOS = new ArrayList<>();
 
@@ -31,12 +31,12 @@ public class SupplierDAOImpl implements SupplierDAO {
 
     @Override
     public boolean save(Supplier dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("insert into supplier(supplier_id, supplier_name,contact_name, contact_number, address) values (?,?,?,?,?)",dto.getSupplier_id(),dto.getSupplier_name(),dto.getContact_name(),dto.getContact_number(),dto.getAddress());
+        return SQLUtil.execute("insert into supplier(supplier_id, supplier_name,contact_name, phone_number, address) values (?,?,?,?,?)",dto.getSupplier_id(),dto.getSupplier_name(),dto.getContact_name(),dto.getContact_number(),dto.getAddress());
     }
 
     @Override
     public boolean update(Supplier dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("update supplier set Supplier_name=?,contact_name=?, contact_number=?, address=? where supplier_id=?",dto.getSupplier_name(),dto.getContact_name(),dto.getContact_number(),dto.getAddress(),dto.getSupplier_id());
+        return SQLUtil.execute("update supplier set supplier_name=?,contact_name=?, phone_number=?, address=? where supplier_id=?",dto.getSupplier_name(),dto.getContact_name(),dto.getContact_number(),dto.getAddress(),dto.getSupplier_id());
     }
 
     @Override
@@ -46,12 +46,13 @@ public class SupplierDAOImpl implements SupplierDAO {
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("select supplier_id from supplier",id);
+        return SQLUtil.execute("delete from supplier where supplier_id=?",id);
     }
+
 
     @Override
     public int generateNewId() throws SQLException, ClassNotFoundException {
-        ResultSet rst =SQLUtil.execute("SELECT supplier_id from supplier order by supplier_id desc limit 1");
+        ResultSet rst =SQLUtil.execute("select supplier_id from supplier order by supplier_id desc limit 1");
 
         if (rst.next()) {
             String lastId = rst.getString(1);
@@ -61,19 +62,6 @@ public class SupplierDAOImpl implements SupplierDAO {
             return Integer.parseInt(String.format("S%03d", newIdIndex));
         }
         return Integer.parseInt("S001");
-    }
-    @Override
-    public String getNextSupplierId() throws SQLException, ClassNotFoundException {
-        ResultSet rst = SQLUtil.execute("select supplier_id from supplier order by supplier_id desc limit 1");
-
-        if (rst.next()) {
-            String lastId = rst.getString(1);
-            String substring = lastId.substring(1);
-            int i = Integer.parseInt(substring);
-            int newIdIndex = i + 1;
-            return String.format("S%03d", newIdIndex);
-        }
-        return "S001";
     }
 
     @Override

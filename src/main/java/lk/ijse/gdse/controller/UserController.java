@@ -11,10 +11,9 @@ import lk.ijse.gdse.bo.BOFactory;
 import lk.ijse.gdse.bo.custom.UserBO;
 import lk.ijse.gdse.dto.UserDTO;
 import lk.ijse.gdse.dto.tm.UserTM;
-import lk.ijse.gdse.entity.User;
 
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 
 public class UserController {
 
@@ -60,9 +59,9 @@ public class UserController {
 
     private void loadTableData() throws SQLException, ClassNotFoundException {
         ObservableList<UserTM> userTMS = FXCollections.observableArrayList();
-        List<User> userList = userBO.getAllUserIds();
+        ArrayList<UserDTO> userList = userBO.getAllUserIds();
 
-        for (User userDTO : userList) {
+        for (UserDTO userDTO : userList) {
             userTMS.add(new UserTM(
                     userDTO.getUser_id(),
                     userDTO.getUsername(),
@@ -72,7 +71,7 @@ public class UserController {
             ));
         }
 
-        tbluser.setItems(userTMS);
+        tblUser.setItems(userTMS);
     }
 
     private boolean validateInputs() {
