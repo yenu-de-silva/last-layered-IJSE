@@ -86,14 +86,14 @@ public class OrderDetailsController {
     }
 
     @FXML
-    void saveOrderDetails(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void btnadd_order_details(ActionEvent event) throws SQLException, ClassNotFoundException {
         if (!validateOrderDetails()) {
             return;
         }
         OrderDetailsDTO orderDetailsDto = new OrderDetailsDTO(
                 txtOrderDetailsId.getText(),
                 txtOrderId.getText(),
-                txtItemId.getText(),
+                txtProductId.getText(),
                 Integer.parseInt(txtQty.getText()),
                 Double.parseDouble(txtUnitPrice.getText())
         );
@@ -108,14 +108,14 @@ public class OrderDetailsController {
     }
 
     @FXML
-    void updateOrderDetails(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void btnupdate_order_details(ActionEvent event) throws SQLException, ClassNotFoundException {
         if (!validateOrderDetails()) {
             return;
         }
         OrderDetailsDTO orderDetailsDto = new OrderDetailsDTO(
                 txtOrderDetailsId.getText(),
                 txtOrderId.getText(),
-                txtItemId.getText(),
+                txtProductId.getText(),
                 Integer.parseInt(txtQty.getText()),
                 Double.parseDouble(txtUnitPrice.getText())
         );
@@ -130,7 +130,7 @@ public class OrderDetailsController {
     }
 
     @FXML
-    void deleteOrderDetails(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void btndelete_order_details(ActionEvent event) throws SQLException, ClassNotFoundException {
         String orderDetailId = txtOrderDetailsId.getText();
         if (orderDetailId.isEmpty()) {
             showAlert("Warning", "Please enter an order details ID", Alert.AlertType.WARNING);
@@ -153,7 +153,7 @@ public class OrderDetailsController {
     private void clearFields() {
         txtOrderDetailsId.clear();
         txtOrderId.clear();
-        txtItemId.clear();
+        txtProductId.clear();
         txtQty.clear();
         txtUnitPrice.clear();
     }

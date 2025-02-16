@@ -85,7 +85,7 @@ public class InventoryController {
 
     @FXML
     private void updateOnAction(ActionEvent actionEvent) throws ClassNotFoundException {
-        handleSaveOrUpdate(false);
+        handleSaveOrUpdate(true);
     }
 
     @FXML
@@ -109,10 +109,10 @@ public class InventoryController {
         try {
             InventoryDTO inventoryDTO = new InventoryDTO(
                     txtInventoryId.getText(),
-                    txtProductId.getText(),
+                    txtproductId.getText(),
                     txtSupplierId.getText(),
                     Integer.parseInt(quantityId.getText()),
-                    txtLastUpdated.getText()
+                    txtlast_updated.getText()
             );
 
             boolean success = isNew ? inventoryBO.saveInventory(inventoryDTO) : inventoryBO.updateInventory(inventoryDTO);
@@ -133,7 +133,7 @@ public class InventoryController {
             showAlert(Alert.AlertType.WARNING, "Invalid Input", "Quantity must be a positive integer.");
             return false;
         }
-        if (txtProductId.getText().isEmpty() || txtSupplierId.getText().isEmpty() || txtLastUpdated.getText().isEmpty()) {
+        if (txtproductId.getText().isEmpty() || txtSupplierId.getText().isEmpty() || txtlast_updated.getText().isEmpty()) {
             showAlert(Alert.AlertType.WARNING, "Invalid Input", "All fields are required.");
             return false;
         }
@@ -143,10 +143,10 @@ public class InventoryController {
     private void refreshPage() throws SQLException, ClassNotFoundException {
         loadTableData();
         generateNextInventoryId();
-        txtProductId.clear();
+        txtproductId.clear();
         txtSupplierId.clear();
         quantityId.clear();
-        txtLastUpdated.clear();
+        txtlast_updated.clear();
     }
 
     private void showAlert(Alert.AlertType alertType, String title, String message) {

@@ -12,6 +12,7 @@ import java.util.List;
 
 public class OrderDAOImpl implements OrderDAO {
 
+
     @Override
     public List<Order> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * from orders");
@@ -29,11 +30,6 @@ public class OrderDAOImpl implements OrderDAO {
             orderDTOS.add(orderDTO);
         }
         return orderDTOS;
-    }
-
-    @Override
-    public boolean save(Customer customer) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("INSERT into customer(order_id, order_date, status, total_price,customer_id) values (?,?,?,?,?)",customer.getOrder_id(),customer.getOrder_date(),customer.getStatus(),customer.getTotal_price(),customer.getCustomer_id());
     }
 
     @Override

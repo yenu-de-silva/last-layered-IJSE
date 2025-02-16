@@ -14,4 +14,5 @@ public class InventoryTM {
     private String supplier_id;
     private Integer quantity;
     private String last_updated;
+
 }

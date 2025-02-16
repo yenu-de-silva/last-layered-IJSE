@@ -15,6 +15,4 @@ public class InventoryDTO {
     private String last_updated;
 
 
-    public InventoryDTO(String text, String text1, String text2, int quantity, String text3) {
-    }
 }

@@ -14,7 +14,4 @@ public class Inventory {
     private Integer quantity;
     private String last_updated;
 
-
-    public Inventory(String text, String text1, String text2, int quantity, String text3) {
-    }
 }

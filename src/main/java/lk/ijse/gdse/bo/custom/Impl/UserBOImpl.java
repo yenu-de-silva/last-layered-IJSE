@@ -2,20 +2,30 @@ package lk.ijse.gdse.bo.custom.Impl;
 
 import lk.ijse.gdse.bo.custom.UserBO;
 import lk.ijse.gdse.dao.DAOFactory;
+import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dao.custom.UserDAO;
 import lk.ijse.gdse.dto.UserDTO;
 import lk.ijse.gdse.entity.User;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 
 public class UserBOImpl implements UserBO {
     UserDAO userDAO = (UserDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.USER);
 
 
     @Override
-    public List<User> getAllUserIds() throws SQLException, ClassNotFoundException {
-        return userDAO.getAllUserIds();
+    public ArrayList<UserDTO> getAllUserIds() throws SQLException, ClassNotFoundException {
+        ResultSet rst = SQLUtil.execute("SELECT user_id FROM user");
+
+        ArrayList<String> userIds = new ArrayList<>();
+
+        while (rst.next()) {
+            userIds.add(rst.getString(1));
+        }
+
+        return getAllUserIds();
     }
 
     @Override

@@ -9,13 +9,11 @@ import lombok.*;
 @ToString
 
 public class OrderTM {
-    private Integer order_id;
+    private int order_id;
     private String order_date;
     private String status;
     private String total_price;
     private String customer_id;
 
 
-    public OrderTM(int orderId, String orderDate, String status, String totalPrice, String customerId) {
-    }
 }

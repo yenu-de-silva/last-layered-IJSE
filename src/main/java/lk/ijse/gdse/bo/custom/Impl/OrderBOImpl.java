@@ -13,7 +13,7 @@ import java.util.List;
 
 public class OrderBOImpl implements OrderBO {
 
-    OrderDAO orderDAO = (OrderDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.ORDER);
+     OrderDAO orderDAO = (OrderDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.ORDER);
 
 
     @Override
@@ -33,11 +33,6 @@ public class OrderBOImpl implements OrderBO {
             orderTMList.add(orderTM);
         }
         return orderTMList;
-    }
-
-    @Override
-    public boolean save(OrderDTO orderDTO) throws SQLException, ClassNotFoundException {
-        return false;
     }
 
 

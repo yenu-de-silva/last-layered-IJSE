@@ -35,13 +35,13 @@ public class OrderController{
 
     public TextField txtcustomerId2;
 
-    public TableView tblorder;
+    public TableView<OrderTM> tblorder;
 
-    public TableColumn colorderId;
+    public TableColumn<OrderTM, Integer> colorderId;
 
-    public TableColumn colorderDate;
+    public TableColumn<OrderTM,String> colorderDate;
 
-    public TableColumn colcustomerId;
+    public TableColumn<OrderTM,String> colcustomerId;
 
     public Button btnrest;
 
@@ -106,7 +106,12 @@ public class OrderController{
     private void loadOrders() throws SQLException, ClassNotFoundException {
         ObservableList<OrderTM> orderTMS = FXCollections.observableArrayList();
         List<OrderTM> sList = orderBO.getAllOrders();
-        orderTMS.addAll(sList);
+        /*orderTMS.addAll(sList);
+        tblorder.setItems(orderTMS);*/
+
+        for (OrderTM orderTM : sList) {
+            orderTMS.add(orderTM);
+        }
         tblorder.setItems(orderTMS);
     }
 
