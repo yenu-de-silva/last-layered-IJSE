@@ -13,60 +13,57 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> getAllUsers() throws SQLException, ClassNotFoundException {
-        ResultSet rst = SQLUtil.execute("SELECT * from user");
+        ResultSet rst = SQLUtil.execute("SELECT * FROM user");
 
-        ArrayList<User> userDTOS = new ArrayList<>();
+        List<User> users = new ArrayList<>();
 
         while (rst.next()) {
-            User userDTO = new User(
-                    rst.getString(1),
-                    rst.getString(2),
-                    rst.getString(3),
-                    rst.getString(4),
-                    rst.getString(5)
-            );
-            userDTOS.add(userDTO);
+            users.add(new User(
+                    rst.getString("user_id"),
+                    rst.getString("username"),
+                    rst.getString("password"),
+                    rst.getString("email"),
+                    rst.getString("role")
+            ));
         }
-        return userDTOS;
+        return users;
     }
 
     @Override
     public List<User> getAllUserIds() throws SQLException, ClassNotFoundException {
-        ResultSet rst = SQLUtil.execute("SELECT user_id FROM user");
-
-        ArrayList<String> userIds = new ArrayList<>();
-
-        while (rst.next()) {
-            userIds.add(rst.getString(1));
-        }
-
-        return getAllUserIds();
+       return null;
     }
 
     @Override
     public List<User> getAll() throws SQLException, ClassNotFoundException {
-        return List.of();
+        return getAllUsers();
     }
 
     @Override
     public boolean save(User dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("INSERT INTO user(user_id, username, password,email, role) VALUES (?,?,?,?,?)",dto.getUser_id(),dto.getUsername(),dto.getPassword(),dto.getEmail(),dto.getRole());
+        return SQLUtil.execute(
+                "INSERT INTO user (user_id, username, password, email, role) VALUES (?, ?, ?, ?, ?)",
+                dto.getUser_id(), dto.getUsername(), dto.getPassword(), dto.getEmail(), dto.getRole()
+        );
     }
 
     @Override
     public boolean update(User dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("UPDATE user SET username=?, password=?, email=? , role=? WHERE user_id=?",dto.getUsername(),dto.getPassword(),dto.getEmail(),dto.getRole(),dto.getUser_id());
+        return SQLUtil.execute(
+                "UPDATE user SET username = ?, password = ?, email = ?, role = ? WHERE user_id = ?",
+                dto.getUsername(), dto.getPassword(), dto.getEmail(), dto.getRole(), dto.getUser_id()
+        );
     }
 
     @Override
     public boolean exist(String id) throws SQLException, ClassNotFoundException {
-        return false;
+        ResultSet rst = SQLUtil.execute("SELECT user_id FROM user WHERE user_id = ?", id);
+        return rst.next();
     }
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("DELETE FROM user WHERE user_id=?",id);
-
+        return SQLUtil.execute("DELETE FROM user WHERE user_id = ?", id);
     }
 
     @Override
@@ -74,14 +71,24 @@ public class UserDAOImpl implements UserDAO {
         ResultSet rst = SQLUtil.execute("SELECT user_id FROM user ORDER BY user_id DESC LIMIT 1");
 
         if (rst.next()) {
-            int lastId = rst.getInt(1);
-            return lastId + 1;
+            return rst.getInt("user_id") + 1;
         }
         return 1;
     }
 
     @Override
     public User search(String id) throws SQLException, ClassNotFoundException {
+        ResultSet rst = SQLUtil.execute("SELECT * FROM user WHERE user_id = ?", id);
+
+        if (rst.next()) {
+            return new User(
+                    rst.getString("user_id"),
+                    rst.getString("username"),
+                    rst.getString("password"),
+                    rst.getString("email"),
+                    rst.getString("role")
+            );
+        }
         return null;
     }
 }

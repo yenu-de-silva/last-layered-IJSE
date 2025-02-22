@@ -71,7 +71,7 @@ public class UserController {
             ));
         }
 
-        tbluser.setItems(userTMS);
+        tblUser.setItems(userTMS);
     }
 
     private boolean validateInputs() {
